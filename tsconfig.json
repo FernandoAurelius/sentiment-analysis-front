@@ -3,7 +3,7 @@
     "target": "ESNext",        // Specify ECMAScript target version
     "module": "ESNext",        // Specify module code generation
     "strict": true,           // Enable all strict type checking options
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,

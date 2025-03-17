@@ -1,5 +1,8 @@
-import IAnalysisResult from "./IAnalysisResult";
+import IAnalysisResult from './IAnalysisResult'
+
+export type ComponentName = 'welcome' | 'form' | 'result'
 
 export default interface State {
-    latestAnalysisResult: IAnalysisResult;
+  latestAnalysisResult: IAnalysisResult
+  currentComponent: ComponentName
 }
