@@ -38,6 +38,7 @@ export default defineComponent({
 
                 // Enviar no formato que o backend espera (usando o proxy)
                 const response = await api.post('/analyze', formattedMessages);
+                console.log("Debug: ", await api.post('/debug', formattedMessages));
 
                 console.log('Resposta da API:', response.data);
 
