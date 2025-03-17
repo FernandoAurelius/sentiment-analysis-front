@@ -79,11 +79,6 @@ export default defineComponent({
             this.activeView = view;
         },
         getScorePercentage(score: number): number {
-            // Se o score já estiver em escala 0-100, retorna diretamente
-            if (score > 1 && score <= 100) {
-                return Math.round(score);
-            }
-            // Se estiver em escala 0-1, multiplica por 100
             return Math.round(score * 100);
         },
         
