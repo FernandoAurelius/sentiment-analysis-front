@@ -54,6 +54,7 @@ export default defineComponent({
                         const parsedDesc = typeof cleanedDesc === 'string' ? JSON.parse(cleanedDesc) : cleanedDesc;
                         processDescriptions.push(parsedDesc);
                     } catch (e) {
+                        console.error('Erro ao parsear descrição JSON:', e);
                         // Fallback para texto puro se não for JSON válido
                         processDescriptions.push({
                             title: "Análise de Sentimentos",
@@ -71,11 +72,13 @@ export default defineComponent({
                 const poems: IPoem[] = [];
                 for (const poemText of analysisData.poem) {
                     try {
-                        // Tenta fazer parse do JSON
+                        // Limpar os delimitadores de markdown antes do parsing
                         const cleanedDesc = poemText.replace(/```json\n?/g, "").replace(/```\n?/g, "");
-                        const parsedPoem = typeof poemText === 'string' ? JSON.parse(cleanedDesc) : cleanedDesc;
+                        // Tenta fazer parse do JSON
+                        const parsedPoem = typeof cleanedDesc === 'string' ? JSON.parse(cleanedDesc) : cleanedDesc;
                         poems.push(parsedPoem);
                     } catch (e) {
+                        console.error('Erro ao parsear poema JSON:', e);
                         // Fallback para texto puro se não for JSON válido
                         poems.push({
                             title: "Poema",
@@ -88,16 +91,19 @@ export default defineComponent({
 
                 // Mapear a resposta para o formato que nosso front-end espera
                 const formattedResult = {
-                    messages: analysisData.message_list.map(item => ({
+                    messages: analysisData.message_list.map((item: { message_text: any; label: any; score: any; }) => ({
                         messageText: item.message_text,
                         evaluation: {
-                            label: item.label,
-                            score: item.score
+                            // Adaptar ao novo formato da API
+                            label: item.label || "UNDEFINED",
+                            score: item.score || 0
                         }
                     })),
                     processDescription: processDescriptions,
                     poem: poems
                 };
+
+                console.log("Resultado formatado:", formattedResult);
 
                 this.setLatestAnalysisResult(formattedResult);
                 this.navigateTo('result');

@@ -1,13 +1,14 @@
 import State, { ComponentName } from '@/interfaces/State'
 import IMessageEvaluation from '@/interfaces/IMessageEvaluation'
 import { createStore } from 'vuex'
+import { IPoem, IProcessDescription } from '@/interfaces/IAnalysisResult'
 
 export default createStore<State>({
   state: {
     latestAnalysisResult: {
       messages: [] as IMessageEvaluation[],
-      processDescription: '',
-      poem: '',
+      processDescription: [] as IProcessDescription[],
+      poem: [] as IPoem[],
     },
     currentComponent: 'welcome' as ComponentName,
   },

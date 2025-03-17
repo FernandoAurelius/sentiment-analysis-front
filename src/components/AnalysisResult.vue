@@ -46,26 +46,28 @@ export default defineComponent({
         sentimentColor(): string {
             if (!this.currentMessage) return 'text-white';
 
-            const label = this.currentMessage.evaluation.label;
-            if (label.includes('5') || label.toLowerCase().includes('positive')) {
+            const label = this.currentMessage.evaluation.label.toUpperCase();
+
+            if (label === 'POSITIVE') {
                 return 'text-green-400';
-            } else if (label.includes('1') || label.toLowerCase().includes('negative')) {
+            } else if (label === 'NEGATIVE') {
                 return 'text-red-400';
             } else {
-                return 'text-yellow-300';
+                return 'text-yellow-300'; // Para NEUTRAL ou outros casos
             }
         },
 
         sentimentEmoji(): string {
             if (!this.currentMessage) return '😐';
 
-            const label = this.currentMessage.evaluation.label;
-            if (label.includes('5') || label.toLowerCase().includes('positive')) {
+            const label = this.currentMessage.evaluation.label.toUpperCase();
+
+            if (label === 'POSITIVE') {
                 return '😄';
-            } else if (label.includes('1') || label.toLowerCase().includes('negative')) {
+            } else if (label === 'NEGATIVE') {
                 return '😞';
             } else {
-                return '😐';
+                return '😐'; // Para NEUTRAL ou outros casos
             }
         }
     },
@@ -77,7 +79,28 @@ export default defineComponent({
             this.activeView = view;
         },
         getScorePercentage(score: number): number {
+            // Se o score já estiver em escala 0-100, retorna diretamente
+            if (score >= 1 && score <= 100) {
+                return Math.round(score);
+            }
+            // Se estiver em escala 0-1, multiplica por 100
             return Math.round(score * 100);
+        },
+        
+        getSentimentLabel(label: string): string {
+            // Converter o label técnico para um formato mais amigável
+            switch(label.toUpperCase()) {
+                case 'POSITIVE':
+                    return 'Positivo';
+                case 'NEGATIVE':
+                    return 'Negativo';
+                case 'NEUTRAL':
+                    return 'Neutro';
+                case 'UNDEFINED':
+                    return 'Indefinido';
+                default:
+                    return label;
+            }
         }
     }
 });
@@ -110,23 +133,23 @@ export default defineComponent({
                         </h3>
                         <span :class="[
                             'text-2xl',
-                            message.evaluation.label.includes('5') ? 'text-green-400' :
-                                message.evaluation.label.includes('1') ? 'text-red-400' : 'text-yellow-300'
+                            message.evaluation.label.toUpperCase() === 'POSITIVE' ? 'text-green-400' :
+                                message.evaluation.label.toUpperCase() === 'NEGATIVE' ? 'text-red-400' : 'text-yellow-300'
                         ]">
-                            {{ message.evaluation.label.includes('5') ? '😄' :
-                                message.evaluation.label.includes('1') ? '😞' : '😐' }}
+                            {{ message.evaluation.label.toUpperCase() === 'POSITIVE' ? '😄' :
+                                message.evaluation.label.toUpperCase() === 'NEGATIVE' ? '😞' : '😐' }}
                         </span>
                     </div>
 
                     <div class="w-full bg-gray-900/50 rounded-full h-2.5 mb-1">
                         <div class="h-2.5 rounded-full" :class="[
-                            message.evaluation.label.includes('5') ? 'bg-gradient-to-r from-green-500 to-green-300' :
-                                message.evaluation.label.includes('1') ? 'bg-gradient-to-r from-red-500 to-red-300' : 'bg-gradient-to-r from-yellow-500 to-yellow-300'
+                            message.evaluation.label.toUpperCase() === 'POSITIVE' ? 'bg-gradient-to-r from-green-500 to-green-300' :
+                                message.evaluation.label.toUpperCase() === 'NEGATIVE' ? 'bg-gradient-to-r from-red-500 to-red-300' : 'bg-gradient-to-r from-yellow-500 to-yellow-300'
                         ]" :style="`width: ${getScorePercentage(message.evaluation.score)}%`"></div>
                     </div>
                     <div class="flex justify-between text-xs text-indigo-300">
                         <span>Confiança: {{ getScorePercentage(message.evaluation.score) }}%</span>
-                        <span>{{ message.evaluation.label }}</span>
+                        <span>{{ getSentimentLabel(message.evaluation.label) }}</span>
                     </div>
                 </div>
             </div>
@@ -161,12 +184,15 @@ export default defineComponent({
                     <div class="flex items-center gap-2">
                         <div class="w-full max-w-xs bg-gray-900/50 rounded-full h-2.5">
                             <div class="h-2.5 rounded-full" :class="[
-                                currentMessage?.evaluation.label.includes('5') ? 'bg-gradient-to-r from-green-500 to-green-300' :
-                                    currentMessage?.evaluation.label.includes('1') ? 'bg-gradient-to-r from-red-500 to-red-300' : 'bg-gradient-to-r from-yellow-500 to-yellow-300'
+                                currentMessage?.evaluation.label.toUpperCase() === 'POSITIVE' ? 'bg-gradient-to-r from-green-500 to-green-300' :
+                                    currentMessage?.evaluation.label.toUpperCase() === 'NEGATIVE' ? 'bg-gradient-to-r from-red-500 to-red-300' : 'bg-gradient-to-r from-yellow-500 to-yellow-300'
                             ]" :style="`width: ${getScorePercentage(currentMessage?.evaluation.score || 0)}%`"></div>
                         </div>
                         <span class="text-sm text-indigo-300">
                             {{ getScorePercentage(currentMessage?.evaluation.score || 0) }}% de confiança
+                        </span>
+                        <span class="text-sm font-medium" :class="[sentimentColor]">
+                            {{ getSentimentLabel(currentMessage?.evaluation.label || '') }}
                         </span>
                     </div>
                 </div>
