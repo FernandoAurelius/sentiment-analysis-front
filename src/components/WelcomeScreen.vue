@@ -96,18 +96,18 @@ export default defineComponent({
         </div>
     </section>
     <section
-        class="on-scroll-hidden grid place-items-center align-center min-h-screen p-5 box-border opacity-0 transition-all duration-1000 blur-xs -translate-x-full">
-        <div class="relative inline-block mb-10">
+        class="on-scroll-hidden grid place-items-center align-center min-h-screen p-3 md:p-5 box-border opacity-0 transition-all duration-1000 blur-xs -translate-x-full">
+        <div class="relative inline-block mb-6 md:mb-10 w-full text-center">
             <h2
-                class="text-3xl md:text-5xl font-bold text-white text-center overflow-hidden whitespace-nowrap my-0 mx-auto tracking-tight border-r-[0.15em] border-solid [border-color:transparent] [animation:var(--animate-typing-text),var(--animate-typing-cursor)]">
+                class="text-2xl md:text-5xl font-bold text-white text-center overflow-hidden whitespace-nowrap my-0 mx-auto tracking-tight border-r-[0.15em] border-solid [border-color:transparent] [animation:var(--animate-typing-text),var(--animate-typing-cursor)]">
                 O pipeline de processamento...
             </h2>
         </div>
-        <div class="w-full flex flex-wrap justify-center gap-8 max-w-6xl">
+        <div class="w-full flex flex-wrap justify-center gap-4 md:gap-8 px-2">
             <div
-                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full max-w-xs">
+                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full w-full sm:w-[45%] md:max-w-xs">
                 <div
-                    class="w-full max-w-[100px] h-[100px] m-2 rounded-2xl p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-indigo-900/30 animate-float">
+                    class="w-full max-w-[80px] md:max-w-[100px] h-[80px] md:h-[100px] m-2 rounded-2xl p-4 md:p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-indigo-900/30 animate-float">
                     <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" fill="#E0F7FA" />
                         <circle cx="5" cy="5" r="1" fill="#E0F7FA" />
@@ -140,9 +140,9 @@ export default defineComponent({
             </div>
 
             <div
-                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full max-w-xs">
+                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full w-full sm:w-[45%] md:max-w-xs">
                 <div
-                    class="w-full max-w-[100px] h-[100px] m-2 rounded-2xl p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-fuchsia-900/30 animate-float">
+                    class="w-full max-w-[80px] md:max-w-[100px] h-[80px] md:h-[100px] m-2 rounded-2xl p-4 md:p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-indigo-900/30 animate-float">
                     <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"
@@ -170,9 +170,9 @@ export default defineComponent({
             </div>
 
             <div
-                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full max-w-xs">
+                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full w-full sm:w-[45%] md:max-w-xs">
                 <div
-                    class="w-full max-w-[100px] h-[100px] m-2 rounded-2xl p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-purple-900/30 animate-float">
+                    class="w-full max-w-[80px] md:max-w-[100px] h-[80px] md:h-[100px] m-2 rounded-2xl p-4 md:p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-indigo-900/30 animate-float">
                     <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5Z"
@@ -195,9 +195,9 @@ export default defineComponent({
             </div>
 
             <div
-                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full max-w-xs">
+                class="on-scroll-hidden flex flex-col items-center opacity-0 transition-all duration-1000 blur-xs -translate-x-full w-full sm:w-[45%] md:max-w-xs">
                 <div
-                    class="w-full max-w-[100px] h-[100px] m-2 rounded-2xl p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-purple-900/30 animate-float">
+                    class="w-full max-w-[80px] md:max-w-[100px] h-[80px] md:h-[100px] m-2 rounded-2xl p-4 md:p-6 bg-purple-600 flex items-center justify-center shadow-lg hover:bg-purple-500 transition-all shadow-indigo-900/30 animate-float">
                     <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#E0F7FA" />
                         <path d="M2 17L12 22L22 17" stroke="#E0F7FA" stroke-width="2" />
@@ -220,13 +220,15 @@ export default defineComponent({
         </div>
     </section>
     <section
-        class="on-scroll-hidden grid place-items-center align-center min-h-screen p-5 box-border opacity-0 transition-all duration-1000 blur-xs -translate-x-full">
-        <div>
+        class="on-scroll-hidden grid place-items-center align-center min-h-screen p-4 md:p-5 box-border opacity-0 transition-all duration-1000 blur-xs -translate-x-full">
+        <div class="flex flex-col items-center justify-center">
             <h2
-                class="text-6xl md:text-3xl font-bold text-white text-center overflow-hidden whitespace-nowrap mb-20 mx-auto tracking-tight">
+                class="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-8 md:mb-12 lg:mb-20 mx-auto tracking-tight">
                 Pronto para começar?
             </h2>
-            <NavigationButton />
+            <div class="w-full flex justify-center">
+                <NavigationButton />
+            </div>
         </div>
     </section>
 </template>
