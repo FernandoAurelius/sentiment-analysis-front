@@ -79,12 +79,15 @@ export default defineComponent({
             this.activeView = view;
         },
         getScorePercentage(score: number): number {
+            // Garantir que score 1 retorne 100%
+            if (score === 1) return 100;
+
             return Math.round(score * 100);
         },
-        
+
         getSentimentLabel(label: string): string {
             // Converter o label técnico para um formato mais amigável
-            switch(label.toUpperCase()) {
+            switch (label.toUpperCase()) {
                 case 'POSITIVE':
                     return 'Positivo';
                 case 'NEGATIVE':
