@@ -12,6 +12,7 @@ Uma interface interativa para explorar o processamento de linguagem natural (PLN
 Este projeto foi desenvolvido como parte da matéria de Qualificação Profissional do Curso Técnico em Informática para Internet no CEMIC. O objetivo é apresentar, de maneira dinâmica e interativa, o processo de análise de linguagem natural aplicado à análise de sentimentos.
 
 O usuário pode submeter frases para análise e visualizar:
+
 - A classificação de sentimento (positivo, negativo ou neutro)
 - Uma explicação detalhada do processo de análise
 - Um poema gerado por IA baseado no sentimento detectado
@@ -19,6 +20,7 @@ O usuário pode submeter frases para análise e visualizar:
 ## 🚀 Tecnologias Utilizadas
 
 ### Frontend
+
 - **Vue.js 3**: Framework JavaScript progressivo para construção de interfaces
 - **TypeScript**: Adiciona tipagem estática ao JavaScript
 - **TailwindCSS**: Framework CSS utilitário para design rápido
@@ -26,6 +28,7 @@ O usuário pode submeter frases para análise e visualizar:
 - **Axios**: Cliente HTTP para comunicação com API
 
 ### Backend
+
 - **FastAPI**: Framework web Python de alto desempenho
 - **Redis**: Banco de dados em memória para caching
 - **NLP Cloud API**: Serviço para análise de sentimentos
@@ -35,18 +38,21 @@ O usuário pode submeter frases para análise e visualizar:
 ## 🔧 Instalação e Configuração
 
 ### Pré-requisitos
+
 - Node.js (v18+)
 - npm ou yarn
 
 ### Instalação
 
 1. Clone o repositório:
+
 ```bash
 git clone https://github.com/seu-usuario/sentiment-analysis-front.git
 cd sentiment-analysis-front
 ```
 
 2. Instale as dependências:
+
 ```bash
 npm install
 # ou
@@ -54,6 +60,7 @@ yarn install
 ```
 
 3. Configure o arquivo `.env` com a URL da API:
+
 ```
 VITE_API_URL=https://api.sentiment.floresdev.com.br
 # ou seu backend local
@@ -61,6 +68,7 @@ VITE_API_URL=https://api.sentiment.floresdev.com.br
 ```
 
 4. Execute o projeto em modo de desenvolvimento:
+
 ```bash
 npm run dev
 # ou

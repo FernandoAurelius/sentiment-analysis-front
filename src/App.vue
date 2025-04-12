@@ -41,7 +41,7 @@ export default defineComponent({
         <AboutPage />
       </div>
     </transition>
-    
+
     <Footer />
   </main>
 </template>
