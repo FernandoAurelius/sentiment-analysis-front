@@ -17,6 +17,8 @@ export default defineComponent({
                     return 'Ver os resultados';
                 case 'result':
                     return 'Voltar para o início';
+                case 'about':
+                    return 'Voltar para o início';
                 default:
                     return 'Continuar';
             }
@@ -29,6 +31,8 @@ export default defineComponent({
                 case 'form':
                     return 'result';
                 case 'result':
+                    return 'welcome';
+                case 'about':
                     return 'welcome';
                 default:
                     return 'welcome';
